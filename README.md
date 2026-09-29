@@ -1,5 +1,7 @@
 # Sparkles
 
+![GitHub Downloads (specific asset, all releases)](https://img.shields.io/github/downloads/sparkles-everywhere/sparkle-android/app-debug.apk?displayAssetName=false&style=for-the-badge&color=080)
+
 A lightweight Android app that displays animated sparkles as a system-wide transparent overlay. The sparkles appear over other apps without intercepting touch input, creating a subtle magical effect on your device.
 
 This is the Android counterpart to the Linux/X11 `desktop-sparkles.py` implementation.
