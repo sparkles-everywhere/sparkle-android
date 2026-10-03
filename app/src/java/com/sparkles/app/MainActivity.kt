@@ -234,8 +234,8 @@ class MainActivity : AppCompatActivity() {
                 else -> preset.color
             }
             val labelColor = when (preset.name) {
-                "Black" -> android.graphics.Color.BLACK
-                "White" -> android.graphics.Color.WHITE
+                "Black", "Orange", "Yellow", "Green" -> android.graphics.Color.BLACK
+                "White", "Red", "Blue", "Purple", "Pink" -> android.graphics.Color.WHITE
                 else -> android.graphics.Color.DKGRAY
             }
             colorPreview.layoutParams = android.widget.LinearLayout.LayoutParams(
@@ -312,8 +312,8 @@ class MainActivity : AppCompatActivity() {
             )
             colorSelectorButton.setTextColor(
                 when (preset.name) {
-                    "Black" -> android.graphics.Color.BLACK
-                    "White" -> android.graphics.Color.WHITE
+                    "Black", "Orange", "Yellow", "Green" -> android.graphics.Color.BLACK
+                    "White", "Red", "Blue", "Purple", "Pink" -> android.graphics.Color.WHITE
                     else -> android.graphics.Color.DKGRAY
                 }
             )

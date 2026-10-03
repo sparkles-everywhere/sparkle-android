@@ -14,6 +14,13 @@ data class ColorPreset(
         val BLACK = ColorPreset("Black", Color.BLACK, useTextDisplay = true)
         val WHITE = ColorPreset("White", Color.WHITE, useTextDisplay = true)
         val GREY = ColorPreset("Grey", Color.parseColor("#888888"), useTextDisplay = true)
+        val RED = ColorPreset("Red", Color.parseColor("#FF0000"), useTextDisplay = true)
+        val ORANGE = ColorPreset("Orange", Color.parseColor("#FF8800"), useTextDisplay = true)
+        val YELLOW = ColorPreset("Yellow", Color.parseColor("#FFFF00"), useTextDisplay = true)
+        val GREEN = ColorPreset("Green", Color.parseColor("#00FF00"), useTextDisplay = true)
+        val BLUE = ColorPreset("Blue", Color.parseColor("#0000FF"), useTextDisplay = true)
+        val PURPLE = ColorPreset("Purple", Color.parseColor("#880088"), useTextDisplay = true)
+        val PINK = ColorPreset("Pink", Color.parseColor("#FF00FF"), useTextDisplay = true)
         val RAINBOW = ColorPreset(
             null,
             Color.WHITE,
@@ -628,7 +635,7 @@ data class ColorPreset(
         )
         
         val DEFAULT_PRESETS = listOf(
-            BLACK, WHITE, GREY, RAINBOW,
+            BLACK, WHITE, GREY, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE, PINK, RAINBOW,
             GAY_MEN, LESBIAN, BISEXUAL, PANSEXUAL, TRANSGENDER, NON_BINARY,
             ASEXUAL, AROMANTIC, AROACE, DEMISEXUAL, GENDERFLUID,
             GENDERQUEER, AGENDER, BIGENDER, PANGENDER, OMNISEXUAL, POLYSEXUAL,
