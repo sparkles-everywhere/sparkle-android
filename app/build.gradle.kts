@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "com.sparkles.app"
+    namespace = "com.yeosangist.sparkles"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.sparkles.app"
+        applicationId = "com.yeosangist.sparkles"
         minSdk = 24
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.1.0"
+        versionCode = 3
+        versionName = "2.0.0"
     }
 
     buildTypes {

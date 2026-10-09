@@ -1,4 +1,4 @@
-package com.sparkles.app
+package com.yeosangist.sparkles
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -25,7 +25,7 @@ class SparkleService : Service() {
     companion object {
         private const val NOTIFICATION_ID = 1
         private const val CHANNEL_ID = "sparkles_channel"
-        private const val ACTION_STOP = "com.sparkles.app.ACTION_STOP"
+        private const val ACTION_STOP = "com.yeosangist.sparkles.ACTION_STOP"
 
         fun startService(context: Context) {
             val intent = Intent(context, SparkleService::class.java)

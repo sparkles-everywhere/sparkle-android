@@ -1,4 +1,4 @@
-package com.sparkles.app
+package com.yeosangist.sparkles
 
 import kotlin.random.Random
 
