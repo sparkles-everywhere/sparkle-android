@@ -19,6 +19,7 @@ This is the Android counterpart to the Linux/X11 `desktop-sparkles.py` implement
 - **Five sparkle types**: Diamond, hollow diamond, soft star, six-point, and eight-point shapes
 - **Smooth animations**: Fade in/out, gentle wiggle, subtle rotation, and pulsing
 - **Configurable settings**: Adjust sparkle count, size, lifetime, animation speed, and more
+- **Automatic pause of rendering** while screen is off to preserve battery
 
 ## Requirements
 

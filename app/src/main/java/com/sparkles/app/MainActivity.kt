@@ -106,8 +106,8 @@ class MainActivity : AppCompatActivity() {
     private fun checkPermissionStatus() {
         val hasPermission = hasOverlayPermission()
         if (hasPermission) {
-            permissionButton.text = "Granted ✓"
-            permissionButton.isEnabled = false
+            permissionButton.text = "Manage permission"
+            permissionButton.isEnabled = true
             sparkleSwitch.isEnabled = true
         } else {
             permissionButton.text = "Grant permission"

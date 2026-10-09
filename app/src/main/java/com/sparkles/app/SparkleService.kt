@@ -4,8 +4,10 @@ import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.IBinder
@@ -18,6 +20,7 @@ class SparkleService : Service() {
     private var windowManager: WindowManager? = null
     private var sparkleView: SparkleView? = null
     private var isOverlayActive = false
+    private var screenStateReceiver: BroadcastReceiver? = null
 
     companion object {
         private const val NOTIFICATION_ID = 1
@@ -43,6 +46,7 @@ class SparkleService : Service() {
         super.onCreate()
         SparkleConfig.load(this)
         createNotificationChannel()
+        registerScreenStateReceiver()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -65,6 +69,7 @@ class SparkleService : Service() {
     override fun onDestroy() {
         super.onDestroy()
         stopOverlay()
+        unregisterScreenStateReceiver()
     }
 
     private fun createNotificationChannel() {
@@ -165,7 +170,7 @@ class SparkleService : Service() {
         )
 
         layoutParams.gravity = Gravity.TOP or Gravity.START
-        layoutParams.alpha = 1f
+        layoutParams.alpha = 0.7f
         layoutParams.dimAmount = 0f
 
         try {
@@ -202,5 +207,41 @@ class SparkleService : Service() {
         } else {
             true
         }
+    }
+
+    private fun registerScreenStateReceiver() {
+        screenStateReceiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                when (intent?.action) {
+                    Intent.ACTION_SCREEN_OFF -> {
+                        if (SparkleConfig.pauseWhenScreenOff && isOverlayActive) {
+                            sparkleView?.stop()
+                        }
+                    }
+                    Intent.ACTION_SCREEN_ON -> {
+                        if (SparkleConfig.pauseWhenScreenOff && isOverlayActive) {
+                            sparkleView?.start()
+                        }
+                    }
+                }
+            }
+        }
+
+        val filter = IntentFilter().apply {
+            addAction(Intent.ACTION_SCREEN_OFF)
+            addAction(Intent.ACTION_SCREEN_ON)
+        }
+        registerReceiver(screenStateReceiver, filter)
+    }
+
+    private fun unregisterScreenStateReceiver() {
+        screenStateReceiver?.let {
+            try {
+                unregisterReceiver(it)
+            } catch (e: IllegalArgumentException) {
+                // Receiver not registered
+            }
+        }
+        screenStateReceiver = null
     }
 }

@@ -1,0 +1,14 @@
+Add a little magic to your screen.
+
+Sparkles displays animated sparkles as a transparent, system-wide overlay. The sparkles appear over other apps without interfering with touch input, so you can keep using your phone normally.
+
+Features:
+• System-wide transparent overlay
+• Touch-through display
+• Five sparkle shapes
+• Smooth animations
+• Adjustable sparkle count, size, lifetime, and animation speed
+• Runs as a foreground service
+• No accounts or network connection required
+
+Give your phone some sparkles. ✨

@@ -661,6 +661,7 @@ object SparkleConfig {
     private const val KEY_FADE_IN = "fade_in"
     private const val KEY_FADE_OUT = "fade_out"
     private const val KEY_SELECTED_COLOR_PRESET = "selected_color_preset"
+    private const val KEY_PAUSE_WHEN_SCREEN_OFF = "pause_when_screen_off"
 
     var sparkleCount = 5
     var selectedColorPreset = ColorPreset.WHITE
@@ -677,6 +678,8 @@ object SparkleConfig {
     var fadeInDuration = 500L
     var fadeOutDuration = 800L
 
+    var pauseWhenScreenOff = true
+
     fun load(context: Context) {
         val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         sparkleCount = prefs.getInt(KEY_SPARKLE_COUNT, sparkleCount)
@@ -688,6 +691,7 @@ object SparkleConfig {
         maxRotation = prefs.getFloat(KEY_MAX_ROTATION, maxRotation)
         fadeInDuration = prefs.getLong(KEY_FADE_IN, fadeInDuration)
         fadeOutDuration = prefs.getLong(KEY_FADE_OUT, fadeOutDuration)
+        pauseWhenScreenOff = prefs.getBoolean(KEY_PAUSE_WHEN_SCREEN_OFF, pauseWhenScreenOff)
         
         val presetIndex = prefs.getInt(KEY_SELECTED_COLOR_PRESET, 1) // Default to WHITE (index 1)
         selectedColorPreset = ColorPreset.DEFAULT_PRESETS.getOrNull(presetIndex) ?: ColorPreset.WHITE
@@ -705,6 +709,7 @@ object SparkleConfig {
             putLong(KEY_FADE_IN, fadeInDuration)
             putLong(KEY_FADE_OUT, fadeOutDuration)
             putInt(KEY_SELECTED_COLOR_PRESET, ColorPreset.DEFAULT_PRESETS.indexOf(selectedColorPreset))
+            putBoolean(KEY_PAUSE_WHEN_SCREEN_OFF, pauseWhenScreenOff)
             apply()
         }
     }
